@@ -14,30 +14,30 @@
 # An example set of tests is shown below. It is important to note that these tests are not "unit tests" in 
 # that they are not ran in isolation but in the order shown and the state of the device is not reset or 
 # altered in between executions (unless preconditions are used).
-tests = [ {'description': 'PIND: 0x00, PINB: 0x01 => PINB: 0x01',
-    'steps': [ {'inputs': [('PIND',0x00),('PINB',0x01)], 'iterations': 1 } ],
-    'expected': [('PORTB',0x01)],
+tests = [ {'description': 'PINA: 0x00 => PINC: 0x40',
+    'steps': [ {'inputs': [('PINA',0x00)], 'iterations': 1 } ],
+    'expected': [('PORTC',0x40)],
     },
-    {'description': 'PIND: 0x02, PINB: 0x01 => PINB: 0x00',
-    'steps': [ {'inputs': [('PIND',0x02),('PINB',0x01)], 'iterations': 1 } ],
-    'expected': [('PORTB',0x01)],
-    }, 
-    {'description': 'PIND: 0x22, PINB: 0x01 => PINB: 0x05',
-    'steps': [ {'inputs': [('PIND',0x22),('PINB',0x01)], 'iterations': 1 } ],
-    'expected': [('PORTB',0x05)],
-    }, 
-    {'description': 'PIND: 0x23, PINB: 0x00 => PINB: 0x02',
-    'steps': [ {'inputs': [('PIND',0x23), ('PINB',0x00)], 'iterations': 1 } ],
-    'expected': [('PORTB',0x02)],
-    }, 
-    {'description': 'PIND: 0xFF, PINB: 0x01 => PINB: 0x03',
-    'steps': [ {'inputs': [('PIND',0xFF), ('PINB',0x01)], 'iterations': 1 } ],
-    'expected': [('PORTB',0x03)],
-    }, 
+    {'description': 'PINA: 4 => PINC: 0x70',
+    'steps': [ {'inputs': [('PINA',4)], 'iterations': 1 } ],
+    'expected': [('PORTC',0x70)],
+    },
+    {'description': 'PINA: 10 => PINC: 0x3E',
+    'steps': [ {'inputs': [('PINA',10)], 'iterations': 1 } ],
+    'expected': [('PORTC',0x3E)],
+    },
+    {'description': 'PINA: 15 => PINC: 0x3F',
+    'steps': [ {'inputs': [('PINA',15)], 'iterations': 1 } ],
+    'expected': [('PORTC',0x3F)],
+    },
+    {'description': 'PINA: 0x83 => PINC: 0x70',
+    'steps': [ {'inputs': [('PINA',0x83)], 'iterations': 1 } ],
+    'expected': [('PORTC',0x70)],
+    },
     ]
 
 # Optionally you can add a set of "watch" variables these need to be global or static and may need
 # to be scoped at the function level (for static variables) if there are naming conflicts. The 
 # variables listed here will display everytime you hit (and stop at) a breakpoint
-#watch = ['PORTB','PORTC']
+#watch = ['<function>::<static-var>','PORTB']
 

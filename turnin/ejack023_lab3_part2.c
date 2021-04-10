@@ -22,7 +22,7 @@ int main(void) {
     /* Insert your solution below */
     while (1) {
 	tmpC = 0x00;
-	fuelLvl = PINA;
+	fuelLvl = PINA & 0x0F;
 	if (fuelLvl <= 0) tmpC = 0x00;
 	else if (fuelLvl <= 2) tmpC = 0x20;
 	else if (fuelLvl <=4) tmpC = 0x30;
