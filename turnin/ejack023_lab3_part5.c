@@ -21,9 +21,9 @@ int main(void) {
     /* Insert your solution below */
     while (1) {
 	weight = (PIND << 1) | (PINB & 0x01);
-	if (weight <= 5) PORTB = PINB & 0x01;
-	else if (weight < 70) PORTB = (PINB & 0x01) | 0x04;
-	else PORTB = (PINB & 0x01) | 0x02;
+	if (weight <= 5) PORTB = 0x00; 
+	else if (weight < 70) PORTB = 0x04;
+	else PORTB = 0x02;
     }
     return 1;
 }

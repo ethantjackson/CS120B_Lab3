@@ -14,24 +14,16 @@
 
 int main(void) {
     /* Insert DDR and PORT initializations */
-	DDRA = 0x00; PORTA = 0xFF;
-	DDRC = 0xFF; PORTC = 0x00;
+	DDRD = 0x00; PORTD = 0xFF;
+	DDRB = 0xFE; PORTB = 0x01;
 	
-	unsigned char fuelLvl;
-	unsigned char tmpC;
+	unsigned short weight = 0x00;
     /* Insert your solution below */
     while (1) {
-	tmpC = 0x00;
-	fuelLvl = PINA & 0x0F;
-	if (fuelLvl <= 0) tmpC = 0x00;
-	else if (fuelLvl <= 2) tmpC = 0x20;
-	else if (fuelLvl <=4) tmpC = 0x30;
-	else if (fuelLvl <=6) tmpC = 0x38;
-	else if (fuelLvl <=9) tmpC = 0x3C;
-	else if (fuelLvl <=12) tmpC = 0x3E;
-	else tmpC = 0x3F;
-	if (fuelLvl <=4) tmpC = tmpC | 0x40;
-	PORTC = tmpC;
+	weight = (PIND << 1) | (PINB & 0x01);
+	if (weight <= 5) PORTB = 0x00; 
+	else if (weight < 70) PORTB = 0x04;
+	else PORTB = 0x02;
     }
     return 1;
 }
